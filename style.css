@@ -1,0 +1,146 @@
+/* font */
+/* flayfair */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+/* merriweather */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --warna-pertama: rgb(140, 35, 220);
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    background-color: var(--warna-pertama);
+    justify-content: space-around;
+    color: white;
+    height: 50px;
+    align-items: center;
+}
+
+nav .logo {
+    font-family: 'Merriweather', serif;
+    letter-spacing: 4px;
+    /* border: 1px solid black; */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    width: 40%;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+    /* border: 1px solid black; */
+    
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Tombol Menu */
+nav .menu {
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    height: 20px;
+    justify-content: space-between;
+    cursor: pointer;
+    display: none;
+    
+}
+
+nav .menu span {
+    display: block;
+    background-color: white;
+    width: 28px;
+    height: 3px;
+    border: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+    
+}
+
+nav .menu input {
+    position: absolute;
+    width: 30px;
+    height: 27px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Tombol Menu Animasi */
+nav .menu span:nth-child(2) {
+    /* background-color: blue; */
+    transform-origin: 0 0;
+}
+
+nav .menu input:checked ~ span:nth-child(2) {
+    transform: rotate(40deg);
+}
+
+nav .menu input:checked ~ span:nth-child(4) {
+    transform: rotate(-36deg);
+}
+
+nav .menu span:nth-child(4) {
+    transform-origin: 0 0;
+}
+
+nav .menu input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+}
+
+/* AKHIR NAVBAR */
+
+
+
+/* Responsive */
+/* ukuran tablet */
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+/* ukuran mobile */
+@media screen and (max-width: 576px) {
+    nav ul {
+        position: absolute;
+        flex-direction: column;
+        background-color: var(--warna-pertama);
+        right: 0;
+        top: 0%;
+        height: 100vh;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: -1;
+        transform: translateX(100%);
+        transition: 1s;
+        opacity: 0;
+    }
+
+    nav .menu {
+        display: flex;
+    }
+
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
